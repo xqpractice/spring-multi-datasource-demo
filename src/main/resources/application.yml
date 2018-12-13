@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: spring-multi-datasource
+  datasource:
+    url: jdbc:mysql://localhost/account?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+flyway:
+  enabled: true
