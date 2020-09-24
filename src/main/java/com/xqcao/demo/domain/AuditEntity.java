@@ -9,9 +9,9 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -20,14 +20,20 @@ import java.time.ZonedDateTime;
 @EqualsAndHashCode(callSuper = true)
 public class AuditEntity extends IdEntity {
     @CreatedBy
+    @Column(name = "created_by")
     String createdBy;
 
     @LastModifiedBy
+    @Column(name = "updated_by")
     String updatedBy;
 
     @CreatedDate
-    ZonedDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at")
+    Date createdAt;
 
     @LastModifiedDate
-    ZonedDateTime updatedAt;
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    Date updatedAt;
 }

@@ -13,6 +13,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
+other:
+  datasource:
+    url: jdbc:mysql://localhost:33306/other_account?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
 spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS: false
 
 flyway:

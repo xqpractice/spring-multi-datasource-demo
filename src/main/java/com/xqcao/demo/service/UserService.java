@@ -1,7 +1,7 @@
 package com.xqcao.demo.service;
 
-import com.xqcao.demo.domain.User;
-import com.xqcao.demo.repository.UserRepositoy;
+import com.xqcao.demo.domain.one.User;
+import com.xqcao.demo.repository.one.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +9,22 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private final UserRepositoy repositoy;
+    private final UserRepository repository;
 
     @Autowired
-    public UserService(UserRepositoy repositoy) {
-        this.repositoy = repositoy;
+    public UserService(UserRepository repository) {
+        this.repository = repository;
     }
 
     public User createUser(User user) {
-        return this.repositoy.save(user);
+        return this.repository.save(user);
     }
 
     public List<User> getAllUsers() {
-        return this.repositoy.findAll();
+        return this.repository.findAll();
     }
 
     public User findOneUser(Long id) {
-        return this.repositoy.findOne(id);
+        return this.repository.findOne(id);
     }
 }
